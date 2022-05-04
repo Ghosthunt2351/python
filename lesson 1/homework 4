@@ -1,0 +1,7 @@
+num = input('Введите целое положительное число: ')
+num = list(num)
+big_num = 0
+for i in range(len(num)):
+  while big_num < int(num[i]):
+    big_num += 1
+print('Наибольшая цифра в вашем числе:', big_num)
