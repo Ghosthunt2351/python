@@ -3,13 +3,14 @@ cost = int(input('Введите издержки вашей фирмы: '))
 if gain > cost:
   profit = gain - cost
   print('Прибыль — выручка вашй фирмы больше издержек. Прибыль составила:', profit)
-  rent = profit / gain * 100 // 1
-  print('Ваша рентабельность:', rent,'%')
+  rent = profit / gain * 100
+  print(f'Ваша рентабельность: {rent:.2%}')
   workers = int(input('Укажите количество работников в вашей фирме: '))
-  rent_workers = profit / workers // 1
-  print('Прибыль на одного сотрудника в фирме:', rent_workers)
+  rent_workers = profit / workers
+  print(f'Прибыль на одного сотрудника в фирме: {rent_workers:.0f}')
 elif gain < cost:
   loss = cost - gain
   print('Убыток — издержки вашей фирмы больше выручки. Убыток составил:', loss)
 else:
   print('Прибыль равна убыли - вы с трудом выходите в ноль.')
+ 
