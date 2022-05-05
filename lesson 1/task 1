@@ -2,7 +2,7 @@ x = 12
 y = 'Hello'
 print(x)
 print(y)
-z = int(input('Введите число: '))
-m = input('Введите текст: ')
-print(z)
-print(m)
+x = int(input('Введите число: '))
+y = input('Введите текст: ')
+print(x)
+print(y)
