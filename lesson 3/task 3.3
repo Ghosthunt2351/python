@@ -1,0 +1,12 @@
+def my_func(x, y, z):
+  if x >= z and y >= z:
+    return x + z
+  elif x >= y and z >= y:
+    return x + y
+  elif y >= x and z >= x:
+    return y + z
+
+x = int(input('Введите первое число: '))
+y = int(input('Введите второе число: '))
+z = int(input('Введите третье число: '))
+print('Сумма двух наибольших чисел из введенных равна: ', my_func(x, y, z))
