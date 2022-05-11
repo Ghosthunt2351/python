@@ -6,6 +6,6 @@ elif num < my_list[-1]:
   my_list.append(num)
 else:
   for i in range(len(my_list)-1, 0, -1):
-    if num > my_list[i] and num <= my_list [i-1]:
+    if num > my_list[i] and num <= my_list[i-1]:
       my_list.insert(i, num)
 print(my_list)
