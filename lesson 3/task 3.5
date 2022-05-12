@@ -1,0 +1,19 @@
+numbers = input('Введите ряд чисел, разделенных пробелом:').split(' ')
+sum = 0
+for i in numbers:
+  if i.isdigit() == True:
+    sum += int(i)
+print(f'Сумма всех чисел равна {sum}')
+while True:
+  numbers = input('Введите новые числа, разделенные пробелом (чтобы закончить введите q после чисел):').split(' ')
+  if numbers[-1].lower() == 'q':
+    for i in numbers[0:-1]:
+      if i.isdigit() == True:
+        sum += int(i)
+    print(f'Сумма всех чисел равна {sum}. Конец')
+    break
+  else:
+    for i in numbers:
+      if i.isdigit() == True:
+        sum += int(i)
+    print(f'Сумма всех чисел равна {sum}')
