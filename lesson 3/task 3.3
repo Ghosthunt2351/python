@@ -1,10 +1,7 @@
 def my_func(x, y, z):
-  if x >= z and y >= z:
-    return x + z
-  elif x >= y and z >= y:
-    return x + y
-  elif y >= x and z >= x:
-    return y + z
+  lst = [x, y, z]
+  lst.remove(min(lst))
+  return lst[0] + lst[1]
 
 x = int(input('Введите первое число: '))
 y = int(input('Введите второе число: '))
