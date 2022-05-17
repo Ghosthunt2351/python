@@ -1,28 +1,22 @@
 def summa(list):
   sum = 0
+  new_list = []
   for i in list:
+    if i.isdigit() == True:
+      new_list.append(i)
+  for i in new_list:
     sum += int(i)
   return sum
 
-numbers = input('Введите ряд чисел, разделенных пробелом:').split(' ')
-sum = 0
-for i in numbers:
-  if i.isdigit() == False:
-    numbers.remove(i)
+numbers = input('Введите ряд чисел, разделенных пробелом:').split()
 sum = summa(numbers)
 print(f'Сумма всех чисел равна {sum}')
 while True:
   numbers = input('Введите новые числа, разделенные пробелом (чтобы закончить введите q после чисел):').split(' ')
   if numbers[-1].lower() == 'q':
-    for i in numbers:
-      if i.isdigit() == False:
-        numbers.remove(i)
-    sum = summa(numbers)
+    sum += summa(numbers)
     print(f'Сумма всех чисел равна {sum}. Конец')
     break
   else:
-    for i in numbers:
-      if i.isdigit() == False:
-        numbers.remove(i)
-    sum = summa(numbers)
+    sum += summa(numbers)
     print(f'Сумма всех чисел равна {sum}')
