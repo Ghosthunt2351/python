@@ -1,0 +1,24 @@
+from sys import argv
+from random import randint
+from itertools import cycle
+from itertools import count
+
+iterator, start = argv
+start = int(start)
+list = [i for i in range(start, randint(start, start + 10))]
+print(list)
+
+for el in count(3):
+  if el > start*2:
+    break
+  else:
+    print(el)
+    
+c = 0
+new_list = []
+for el in cycle(list):
+  if c > start*3:
+    break
+  new_list.append(el**2)
+  c += 1
+print(new_list)
