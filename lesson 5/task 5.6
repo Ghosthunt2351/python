@@ -1,0 +1,14 @@
+with open("text_6.txt", 'r', encoding='utf-8') as f_t6:
+    content = f_t6.readlines()
+    studies = {}
+    for line in content:
+        hours = 0
+        for word in line.split():
+            hour = ''
+            for letter in word:
+                if letter.isdigit():
+                    hour += letter
+            if hour.isdigit():
+                hours += float(hour)
+        studies[line.split()[0]] = hours
+    print(studies)
