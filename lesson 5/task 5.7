@@ -9,10 +9,12 @@ with open("text_7.txt", 'r', encoding='utf-8') as f_t7:
         else:
             break
     sum_profit = 0
+    i = 0
     for firm, profit in firms.items():
         if profit > 0:
             sum_profit += profit
-    firms_list = [firms, {'avarage_profit': sum_profit}]
+            i += 1
+    firms_list = [firms, {'avarage_profit': sum_profit / i}]
     print(firms_list)
     with open("text_7.json", 'w', encoding='utf-8') as json_f:
         json.dump(firms_list, json_f, indent=4, ensure_ascii=False)
