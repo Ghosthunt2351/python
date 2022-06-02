@@ -13,6 +13,7 @@ class Position(Worker):
     def get_total_income(self):
         return f'Доход: {self._income["wage"] + self._income["bonus"]}'
 
+
 human_1 = Position('Alex', 'Derbi', 'senior', 12000, 1500)
 human_2 = Position('Anna', 'Mitchel', 'junior', 2000, 300)
 print(human_1.get_full_name())
