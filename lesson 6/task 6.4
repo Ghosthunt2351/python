@@ -1,0 +1,69 @@
+from random import choice
+
+
+class Car:
+    is_police = False
+
+    def __init__(self, speed, color, name):
+        self.speed = speed
+        self.color = color
+        self.name = name
+
+    def go(self):
+        print('Начало движения')
+
+    def stop(self):
+        print('Остановка')
+
+    def turn(self):
+        print(choice(['Поворот налево', 'Поворот направо']))
+
+    def show_speed(self):
+        print(f'Текущая скорость {self.speed}')
+
+
+class TownCar(Car):
+    def show_speed(self):
+        if self.speed > 60:
+            print(f'Ваша скорость: {self.speed}, превышен скоростной режим!')
+        else:
+            print(f'Текущая скорость {self.speed}')
+
+
+class WorkCar(Car):
+    def show_speed(self):
+        if self.speed > 40:
+            print(f'Ваша скорость: {self.speed}, превышен скоростной режим!')
+        else:
+            print(f'Текущая скорость {self.speed}')
+
+
+class SportCar(Car):
+    pass
+
+
+class PoliceCar(Car):
+    is_police = True
+
+
+town = TownCar(70, 'Red', 'Mazda')
+print(f'Ваша машина {town.name}, цвета {town.color}.')
+town.go()
+town.turn()
+town.turn()
+town.show_speed()
+town.stop()
+work = WorkCar(50, 'Yellow', 'Cat')
+print(f'Ваша машина {work.name}, цвета {work.color}.')
+work.go()
+work.turn()
+work.show_speed()
+work.stop()
+police = PoliceCar(80, 'blue', 'Ford')
+print(f'Ваша машина {police.name}, цвета {police.color}.')
+print(police.is_police)
+sport = SportCar(120, 'black', 'Ferrari')
+print(f'Ваша машина {sport.name}, цвета {sport.color}.')
+sport.go()
+sport.show_speed()
+sport.stop()
