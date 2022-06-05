@@ -1,0 +1,16 @@
+class OwnZeroDiv(Exception):
+    def __init__(self, txt):
+        self.txt = txt
+
+
+x = int(input('Введите первое число: '))
+try:
+    y = int(input('Введите второе число: '))
+    if y == 0:
+        raise OwnZeroDiv('Нельзя делить на ноль')
+except ValueError:
+    print('Вы ввели не число')
+except OwnZeroDiv as err:
+    print(err)
+else:
+    print(f'Результат деления первого на второе: {x / y}')
