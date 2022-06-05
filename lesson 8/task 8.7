@@ -1,0 +1,20 @@
+class Complex:
+    def __init__(self, number):
+        self.number = number
+
+    def __add__(self, other):
+        x_1, y_1 = str(self.number).split('+')
+        x_2, y_2 = str(other.number).split('+')
+        print(x_1, y_1, x_2, y_2)
+        return f'{int(x_1) + int(x_2)}+{int(y_1[:-1]) + int(y_2[:-1])}j'
+
+    def __mul__(self, other):
+        x_1, y_1 = str(self.number).split('+')
+        x_2, y_2 = str(other.number).split('+')
+        return f'{int(x_1) * int(x_2) - int(y_1[:-1]) * int(y_2[:-1])}+{int(x_1) * int(y_2[:-1]) + int(x_2) * int(y_1[:-1])}j'
+
+
+x = Complex(input('Введите комплексное число вида x+yj:'))
+y = Complex(input('Введите комплексное число вида x+yj:'))
+print(f'Сумма комплексных чисел = {x + y}')
+print(f'Произведение комплексных чисел = {x * y}')
