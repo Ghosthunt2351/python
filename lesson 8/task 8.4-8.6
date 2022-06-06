@@ -1,0 +1,135 @@
+class Negative(Exception):
+    def __init_(self, txt):
+      self.txt = txt
+
+
+class Storage:
+    def __init__(self, max=50):
+        self.max_count = max
+        self.count = 0
+        self.all_tehnika = {}
+
+    def tehnika_in(self, n, q):
+        try:
+            q = int(q)
+            if q < 0:
+                raise Negative('Количество не может быть отрицательным')
+            if (self.count + q) > self.max_count:
+                print(f'Склад переполнен, можем принять только {self.max_count - self.count}')
+            else:
+                if n in self.all_tehnika:
+                    self.count += q
+                    self.all_tehnika[n] += q
+                    print(f'На склад помещены: {n} - {q} шт')
+                else:
+                    self.count += q
+                    self.all_tehnika[n] = q
+                    print(f'На склад помещены: {n} - {q} шт')
+        except ValueError:
+            print('Необходимо указать количество цифрами')
+        except Negative as err:
+            print(err)
+
+    def tehnika_out(self, n, q):
+        try:
+            q = int(q)
+            if q < 0:
+                raise Negative('Количество не может быть отрицательным')
+            if self.all_tehnika[n] < q:
+                print(f'Недостаточно техники, в наличии только {self.all_tehnika[n]}')
+            else:
+                self.count -= q
+                self.all_tehnika[n] -= q
+                print(f'Со склада забраны: {n} - {q} шт')
+        except ValueError:
+            print('Необходимо указать количество цифрами')
+        except Negative as err:
+            print(err)
+
+
+class Tehnika:
+    mark = 'Sony'
+    country = 'China'
+
+
+class Printer(Tehnika):
+    name = 'Принтер'
+    color = 'Цветной'
+
+
+class Scaner(Tehnika):
+    name = 'Сканер'
+    size = 'A4'
+
+
+class Xerox(Tehnika):
+    name = 'Ксерокс'
+    screen = 'c экраном'
+
+
+a = Storage()
+p = Printer()
+s = Scaner()
+x = Xerox()
+spisok = {'1': 'Принтер', '2': 'Сканер', '3': 'Ксерокс'}
+while True:
+    choice = input('Выбирите действие:\n1 - поместить товар на склад\n2 - забрать товар со склада\n'
+                   '3 - узнать позиции на складе\n4 - выход из программы\n')
+    if choice == '1':
+        choice = input('Выбирите какой товар вы хотите поместить:\n1 - Принтер\n2 - Сканер\n3 - Ксерокс\n'
+                       '4 - вернуться в предыдущее меню\n')
+        if choice == '1' or choice == '2' or choice == '3':
+            number = input('Укажите количество шт: ')
+            a.tehnika_in(spisok[choice], number)
+        elif choice == '4':
+            continue
+        else:
+            print('Некорректный ввод')
+            continue
+    elif choice == '2':
+        if a.count == 0:
+            print('Склад пуст')
+        else:
+            choice = input('Выбирите какой товар вы хотите забрать:\n1 - Принтер\n2 - Сканер\n3 - Ксерокс\n'
+                           '4 - вернуться в предыдущее меню\n')
+            if choice == '1' or choice == '2' or choice == '3':
+                number = input('Укажите количество шт: ')
+                a.tehnika_in(spisok[choice], number)
+            elif choice == '4':
+                continue
+            else:
+                print('Некорректный ввод')
+                continue
+    elif choice == '3':
+        print(f'На складе {a.max_count} мест, свободно {a.max_count - a.count}')
+        if a.count > 0:
+            print(f'На складе имеется следующая техника:')
+            for k, v in a.all_tehnika.items():
+                print(f'{k} - {v} шт.')
+            choice = input('Информация по какой технике необходима?\n1 - Принтер\n2 - Сканер\n3 - Ксерокс\n'
+                           '4 - вернуться в предыдущее меню\n')
+            if choice == '1':
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
+                    print(f'На складе {spisok[choice]} нет')
+                else:
+                    print(f'На складе имеются: {p.name} {p.mark} {p.country} {p.color}')
+            elif choice == '2':
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
+                    print(f'На складе {spisok[choice]} нет')
+                else:
+                    print(f'На складе имеются: {s.name} {s.mark} {s.country} {s.size}')
+            elif choice == '3':
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
+                    print(f'На складе {spisok[choice]} нет')
+                else:
+                    print(f'На складе имеются: {x.name} {x.mark} {x.country} {x.screen}')
+            elif choice == '4':
+                continue
+            else:
+                print('Некорректный ввод')
+                continue
+    elif choice == '4':
+        break
+    else:
+        print('Не корректный выбор')
+      

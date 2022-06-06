@@ -1,0 +1,5 @@
+with open("text_5.txt", 'w') as f_t5:
+    f_t5.write(input('Введите числа через пробел: '))
+
+with open("text_5.txt", 'r') as f_t5:
+    print(sum(map(float, f_t5.readline().split())))

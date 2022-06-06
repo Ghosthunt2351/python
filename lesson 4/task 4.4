@@ -1,0 +1,5 @@
+from random import randint
+
+list = [randint(0, 20) for i in range(0, randint(10, 15))]
+print(list)
+print([i for i in list if list.count(i) == 1])

@@ -1,0 +1,30 @@
+class Matrix:
+    def __init__(self, matrix):
+        self.matrix = matrix
+
+    def __add__(self, other):
+        # new_matrix = []
+        # for i in range(len(self.matrix)):
+        #     mini_m = []
+        #     for j in range(len(self.matrix[i])):
+        #         mini_m.append(self.matrix[i][j]+other.matrix[i][j])
+        #     new_matrix.append(mini_m)
+        # return Matrix(new_matrix)
+        return Matrix([[self.matrix[i][j]+other.matrix[i][j] for j in range(len(self.matrix[i]))] for i in range(len(self.matrix))])
+
+    def __str__(self):
+        # result = ''
+        # for i in range(len(self.matrix)):
+        #     mini_res = ''
+        #     for j in range(len(self.matrix[i])):
+        #         mini_res += f'{self.matrix[i][j]:^4d}'
+        #     result += mini_res + '\n'
+        # return result
+        return '\n'.join([''.join([f'{self.matrix[i][j]:^4d}' for j in range(len(self.matrix[i]))]) for i in range(len(self.matrix))])
+
+
+matrix_1 = Matrix([[12, 3, 45], [2, 20, 9], [41, 17, 6]])
+matrix_2 = Matrix([[43, 72, 12], [63, 31, 55], [4, 52, 22]])
+print(f'Матрица 1:\n{matrix_1}')
+print(f'Матрица 2:\n{matrix_2}')
+print(f'Сумма матриц:\n{matrix_1 + matrix_2}')

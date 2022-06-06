@@ -1,0 +1,23 @@
+class NotNumbers(Exception):
+    def __init__(self, txt):
+        self.txt = txt
+
+
+numbers = []
+while True:
+    number = input('Введите число (для остановки программы введите stop): ')
+    if number == 'stop':
+        break
+    else:
+        try:
+            if not number.replace('.', '', 1).isdigit():
+                raise NotNumbers('Введено не число')
+        except NotNumbers as err:
+            print(err)
+        else:
+            if '.' in number:
+                numbers.append(float(number))
+            else:
+                numbers.append(int(number))
+
+print(numbers)

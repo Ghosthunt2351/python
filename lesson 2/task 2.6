@@ -1,0 +1,46 @@
+i = 1
+goods = []
+while True:
+  menu = input('Меню:\n1 - Добавить товар\n2 - Посмотреть список товаров\n3 - Вывести аналитику\n4 - Закончить\nВведите номер действия: ')
+  if menu == '1':
+    while True:
+      name = input('\nВведите наименование товара: ')
+      price = input('Введите цену товара: ')
+      quantity = input('Введите количество товара: ')
+      measure = input('Введите единицы измерения (шт, кг, л): ')
+      product = {'наименование': name, 'цена': price, 'количество': quantity, 'ед.': measure}
+      goods.append((i, product))
+      i += 1
+      menu_goods = input('Хотите продолжить ввод товара или завершить? (да/нет):')
+      if menu_goods == 'да':
+        continue
+      elif menu_goods == 'нет':
+        print('Выход в меню.\n')
+        break
+      else:
+        print('Некорректный ввод, выход в меню.\n')
+        #Не придумал как реализовать выход в это же меню без использования функций
+        break
+    continue
+  elif menu == '2':
+    for j in range(len(goods)):
+      print(goods[j])
+    continue
+  elif menu == '3':
+    names = []
+    prices = []
+    quantities = []
+    measures = []
+    for j in range(len(goods)):
+      names.append(goods[j][1]['наименование'])
+      prices.append(goods[j][1]['цена'])
+      quantities.append(goods[j][1]['количество'])
+      measures.append(goods[j][1]['ед.'])
+    analisys = {'наименование': names, 'цена': prices, 'количество': quantities, 'ед.': measures}
+    print(analisys,'\n')
+    continue
+  elif menu == '4':
+    break
+  else:
+    print('Некорректный выбор.\n')
+    continue

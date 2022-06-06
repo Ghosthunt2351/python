@@ -1,0 +1,30 @@
+class Date:
+    def __init__(self, date):
+        self.date = date
+        self.is_number(date)
+
+    @classmethod
+    def is_number(cls, date):
+        d, m, y = date.split('-')
+        new_date = []
+        if d.isdigit() and m.isdigit() and y.isdigit():
+            for i in d, m, y:
+                new_date.append(int(i))
+            return cls.correct(new_date)
+        else:
+            print('Дата в некорректном формате, необходим дд-мм-гггг.')
+
+    @staticmethod
+    def correct(date):
+        if 31 >= date[0] >= 0 and 12 >= date[1] >= 0 and date[2] <= 2022:
+            print('Дата корректна')
+        elif date[0] < 0 or date[0] > 31:
+            print('Дата не корректна, дней может быть только 31')
+        elif date[1] < 0 or date[1] > 12:
+            print('Дата не корректна, месяцев может быть только 12')
+        elif date[2] > 2022:
+            print('Дата не корректна, год не может быть больше 2022')
+
+
+x = input('Введите дату формата день-месяц-год: ')
+data = Date(x)

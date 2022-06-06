@@ -1,0 +1,29 @@
+class Stationery:
+    title = 'Концелярия'
+
+    def draw(self):
+        print('Вы печатаете текст')
+
+
+class Pen(Stationery):
+    def draw(self):
+        print('Вы используете ручку')
+
+
+class Pencil(Stationery):
+    def draw(self):
+        print('Вы используете карандаш')
+
+
+class Handle(Stationery):
+    def draw(self):
+        print('Вы используете маркер')
+
+
+a = Pen()
+a.draw()
+print(a.title)
+b = Pencil()
+b.draw()
+c = Handle()
+c.draw()

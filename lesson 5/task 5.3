@@ -1,0 +1,16 @@
+with open("text_3.txt", 'r', encoding='utf-8') as f_t3:
+    content = f_t3.readlines()
+    salary = {}
+    for line in content:
+        salary[line.split()[0]] = line.split()[1]
+    print('Оклад менее 20000 имеют следующие сотрудники:')
+    mid_zp = 0
+    try:
+        for fio, zp in salary.items():
+            mid_zp += float(zp)
+            if float(zp) < 20000:
+                print(fio)
+        print([fio for fio, zp in salary.items() if float(zp) < 15000])
+    except ValueError:
+        print('Вместо зарплаты указаны не цифры')
+    print(f'Средняя величина дохода сотрудников ровна: {mid_zp/len(content)}')

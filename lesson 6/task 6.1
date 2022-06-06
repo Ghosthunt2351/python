@@ -1,0 +1,24 @@
+import time
+
+
+class TrafficLight:
+    __light_color = 'red'
+
+    def running(self):
+        while True:
+            TrafficLight.__light_color = '\033[31m red'
+            print(TrafficLight.__light_color)
+            time.sleep(7)
+            TrafficLight.__light_color = '\033[33m yellow'
+            print(TrafficLight.__light_color)
+            time.sleep(2)
+            TrafficLight.__light_color = '\033[32m green'
+            print(TrafficLight.__light_color)
+            time.sleep(10)
+            TrafficLight.__light_color = '\033[33m yellow'
+            print(TrafficLight.__light_color)
+            time.sleep(2)
+
+
+traffic = TrafficLight()
+traffic.running()

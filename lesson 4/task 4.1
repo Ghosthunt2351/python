@@ -1,0 +1,11 @@
+from sys import argv
+
+def salary(hours, rate, bonus):
+  try:
+    print(int(hours) * int(rate) + int(bonus))
+  except ValueError as err:
+    print(err)
+  
+  
+filename, hours, rate, bonus = argv
+salary(hours, rate, bonus)

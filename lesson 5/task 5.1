@@ -1,0 +1,9 @@
+with open("text_1.txt", 'w') as f_t1:
+    txt = input('Введите текст: ')
+    f_t1.write(f'{txt}\n')
+    while True:
+        txt = input('Введите еще текст или просто нажмите Enter чтобы закончить: ')
+        if txt == '':
+            break
+        else:
+            f_t1.write(f'{txt}\n')
