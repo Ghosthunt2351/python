@@ -1,7 +1,8 @@
 class Storage:
-    max_count = 50
-    count = 0
-    all_tehnika = {}
+    def __init__(self, max=50):
+        self.max_count = max
+        self.count = 0
+        self.all_tehnika = {}
 
     def tehnika_in(self, n, q):
         try:
@@ -93,17 +94,17 @@ while True:
             choice = input('Информация по какой технике необходима?\n1 - Принтер\n2 - Сканер\n3 - Ксерокс\n'
                            '4 - вернуться в предыдущее меню\n')
             if choice == '1':
-                if a.all_tehnika[spisok[choice]] == 0:
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
                     print(f'На складе {spisok[choice]} нет')
                 else:
                     print(f'На складе имеются: {p.name} {p.mark} {p.country} {p.color}')
             elif choice == '2':
-                if a.all_tehnika[spisok[choice]] == 0:
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
                     print(f'На складе {spisok[choice]} нет')
                 else:
                     print(f'На складе имеются: {s.name} {s.mark} {s.country} {s.size}')
             elif choice == '3':
-                if a.all_tehnika[spisok[choice]] == 0:
+                if spisok[choice] not in a.all_tehnika or a.all_tehnika[spisok[choice]] == 0:
                     print(f'На складе {spisok[choice]} нет')
                 else:
                     print(f'На складе имеются: {x.name} {x.mark} {x.country} {x.screen}')
@@ -116,3 +117,4 @@ while True:
         break
     else:
         print('Не корректный выбор')
+      
