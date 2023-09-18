@@ -1,0 +1,7 @@
+with open("text_4.txt", 'r') as f_t4:
+    content = f_t4.readlines()
+    numbers = {'One': 'Один', 'Two': 'Два', 'Three': 'Три', 'Four': 'Четыре'}
+    with open("text_4_new.txt", 'w', encoding='utf-8') as f_t4_new:
+        for line in content:
+            line = line.split()
+            f_t4_new.write(f'{numbers[line[0]] + " " + line[1] + " " + line[2]}\n')

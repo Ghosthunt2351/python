@@ -1,0 +1,12 @@
+def my_func(x, y):
+  if y < 0:
+    z = 1 / x
+    for i in range(1, abs(y)):
+      z *= 1 / x 
+    return z
+  else:
+    return 'y - не отрицательное число'
+
+x = int(input('Введите целое положительное число х: '))
+y = int(input('Введите целое отрицательное число y: '))
+print(f'{x} в степени {y} равно {my_func(x,y)}')

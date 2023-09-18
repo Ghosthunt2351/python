@@ -1,0 +1,9 @@
+def my_func(x, y, z):
+  lst = [x, y, z]
+  lst.remove(min(lst))
+  return lst[0] + lst[1]
+
+x = int(input('Введите первое число: '))
+y = int(input('Введите второе число: '))
+z = int(input('Введите третье число: '))
+print('Сумма двух наибольших чисел из введенных равна: ', my_func(x, y, z))
