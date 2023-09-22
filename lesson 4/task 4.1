@@ -1,3 +1,5 @@
+# Реализовать скрипт, в котором должна быть предусмотрена функция расчёта заработной платы сотрудника. Используйте в нём формулу: (выработка в часах*ставка в час) + премия. Во время выполнения расчёта для конкретных значений необходимо запускать скрипт с параметрами.
+
 from sys import argv
 
 def salary(hours, rate, bonus):
@@ -5,7 +7,6 @@ def salary(hours, rate, bonus):
     print(int(hours) * int(rate) + int(bonus))
   except ValueError as err:
     print(err)
-  
   
 filename, hours, rate, bonus = argv
 salary(hours, rate, bonus)
